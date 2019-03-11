@@ -4,17 +4,17 @@ import styled from 'styled-components';
 const StyledDiv = styled.div`
   background: red;
   border-radius: 50%;
-  width: 50px;
+  width: 100px;
   heigth: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-const Ball = () => {
+const Ball = ({ number }) => {
   return (
     <StyledDiv>
-      <p>1</p>
+      <p>{number}</p>
     </StyledDiv>
   );
 };

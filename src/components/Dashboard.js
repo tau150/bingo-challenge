@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Ball from './Ball';
 
-const SyledDiv = styled.div``;
+const SyledDiv = styled.div`
+  background: blue;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+`;
 
-const numbers = [...Array(100).keys()];
+let numbers = [...Array(101).keys()];
 
 class Dashboard extends Component {
   render() {
-    return <div />;
+    return (
+      <SyledDiv>
+        {numbers.map(number => (
+          <Ball number={number} />
+        ))}
+      </SyledDiv>
+    );
   }
 }
 

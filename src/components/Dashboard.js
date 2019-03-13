@@ -33,46 +33,38 @@ let numbers = _.range(1, 91);
 class Dashboard extends Component {
   state = {
     randomNumber: null,
-    selectedNumbers: []
+    selectedNumbers: [],
   };
 
   handleNextNumber = () => {
     let randomNumber = _.random(1, 90);
 
-    // let uniqueNumbers = Array.from(
-    //   new Set(...this.state.selectedNumbers, randomNumber)
-    // );
-
     this.setState({
       randomNumber: randomNumber,
-      selectedNumbers: [...this.state.selectedNumbers, randomNumber]
+      selectedNumbers: [...this.state.selectedNumbers, randomNumber],
     });
   };
 
   render() {
-    console.log(this.state);
+    console.log(this.state.selectedNumbers);
+
     return (
-      <React.Fragment>
+      <div onKeyDown={this.handleNextNumber} tabIndex="0">
         <BallsContainer>
           {numbers.map(number => (
             <Ball
               number={number}
+              key={number}
               wasSelected={
-                this.state.selectedNumbers.includes(number) === Number(number)
-                  ? 'true'
-                  : 'false'
+                this.state.selectedNumbers.includes(number) ? true : false
               }
             />
           ))}
         </BallsContainer>
         <ControlsContainer>
-          {this.state.randomNumber ? (
-            this.state.randomNumber
-          ) : (
-            <i onClick={this.handleNextNumber} className="far fa-play-circle" />
-          )}
+          <i onClick={this.handleNextNumber} className="far fa-play-circle" />
         </ControlsContainer>
-      </React.Fragment>
+      </div>
     );
   }
 }

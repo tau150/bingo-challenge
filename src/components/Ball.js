@@ -7,8 +7,10 @@ const StyledDiv = styled.div`
   justify-content: center;
   width: 10%;
 
+
   p {
     border-radius: 50%;
+    background: ${({ wasSelected }) => (wasSelected ? '#ec5445' : 'red')};
     border: 1px solid #fff;
     font-weight: bold;
     color: #fff;
@@ -18,15 +20,16 @@ const StyledDiv = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: ${({ wasSelected }) => ('true' ? 'red' : '')};
-  }
+
+
+
 `;
 
 const Ball = ({ number, wasSelected }) => {
   return (
     <StyledDiv>
       <p>
-        {number} - {wasSelected}
+        {number} {wasSelected ? 'SI' : ''}
       </p>
     </StyledDiv>
   );

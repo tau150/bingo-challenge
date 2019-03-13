@@ -20,4 +20,4 @@ Technical specs:
 
 Should provide a repository, ideally with a working demo, should have a npm start, npm test and npm build scripts correctly working
 
-DEMO:
+DEMO: https://nostalgic-snyder-fe1cac.netlify.com/
